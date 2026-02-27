@@ -1,4 +1,4 @@
-# STREAMING_BG
+# STREAMING_DB
 
 ## Prompt generer a ChatGpt
 
