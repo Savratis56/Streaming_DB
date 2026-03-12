@@ -235,7 +235,7 @@ Entité : Avis
 
 ## MCD
 
-<img width="827" height="707" alt="image" src="https://github.com/user-attachments/assets/547ed688-66d6-4676-8550-c2f494f1481d" />
+<img width="1026" height="799" alt="image" src="https://github.com/user-attachments/assets/16af2909-0be5-4f99-89c1-05f589769e6f" />
 
 
 
