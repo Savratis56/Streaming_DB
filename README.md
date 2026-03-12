@@ -2,7 +2,7 @@
 
 ## Prompt generer a ChatGpt
 
-Tu travailles dans le domaine du streaming. Ton entreprise a comme activité de proposer un vaste catalogue de films, séries et documentaires en vidéo à la demande (VOD) via un système d'abonnement. C’est une entreprise comme Netflix, Disney+ ou Amazon Prime Video. Nous avons besoin de structurer notre base de données. Les données ont été collectées sur la gestion des comptes clients, la personnalisation des espaces de visionnage selon l'âge, le catalogue d'œuvres audiovisuelles disponibles, et la façon dont nos clients sauvegardent leurs films et séries préférés pour les regarder plus tard. Inspire-toi de l’architecture générale de la plateforme Netflix. Ton entreprise veut appliquer MERISE pour concevoir un système d'information. Tu es chargé de la partie analyse, c’est-à-dire de collecter les besoins auprès de l’entreprise. Elle a fait appel à un étudiant en ingénierie informatique pour réaliser ce projet, tu dois lui fournir les informations nécessaires pour qu’il applique ensuite lui-même les étapes suivantes de conception et développement de la base de données.
+Tu travailles dans le domaine du streaming. Ton entreprise a comme activité de proposer un vaste catalogue de films, séries et documentaires en vidéo à la demande (VOD) via un système d'abonnement. C’est une entreprise comme Netflix, Disney+ ou Amazon Prime Video. Nous avons besoin de structurer notre base de données. Les données ont été collectées sur la gestion des comptes clients, la personnalisation des espaces de visionnage selon l'âge, le catalogue d'contenu audiovisuelles disponibles, et la façon dont nos clients sauvegardent leurs films et séries préférés pour les regarder plus tard. Inspire-toi de l’architecture générale de la plateforme Netflix. Ton entreprise veut appliquer MERISE pour concevoir un système d'information. Tu es chargé de la partie analyse, c’est-à-dire de collecter les besoins auprès de l’entreprise. Elle a fait appel à un étudiant en ingénierie informatique pour réaliser ce projet, tu dois lui fournir les informations nécessaires pour qu’il applique ensuite lui-même les étapes suivantes de conception et développement de la base de données.
 
 
 ## Resultat du prompt
@@ -16,7 +16,7 @@ La plateforme permet :
 * La gestion des comptes clients
 * La gestion d’abonnements
 * La création de profils personnalisés
-* La consultation d’un catalogue d’œuvres
+* La consultation d’un catalogue d’contenu
 * La sauvegarde de contenus (liste “À regarder plus tard”)
 * Le suivi de l’historique de visionnage
 
@@ -99,7 +99,7 @@ Entité : Profil
 * Un profil enfant ne peut voir que les contenus adaptés à son âge.
 * L’historique est propre à chaque profil.
 
-3️⃣ Catalogue des œuvres
+3️⃣ Catalogue des contenu
 
 La plateforme propose :
 
@@ -107,7 +107,7 @@ La plateforme propose :
 * Séries
 * Documentaires
 
-🎬 Entité : Oeuvre
+🎬 Entité : contenu
 
 | Attribut           | Description                 |
 | ------------------ | --------------------------- |
@@ -118,10 +118,8 @@ La plateforme propose :
 | duree              | Durée (en minutes)          |
 | type               | Film / Série / Documentaire |
 | classification_age | Âge minimum                 |
-| langue_originale   | Langue                      |
-| pays_production    | Pays                        |
-| miniature          | Image                       |
 | bande_annonce      | URL                         |
+| genre              | genre                       |
 
  🎞 Spécificité des séries
  
@@ -144,17 +142,6 @@ Entité : Episode
 | duree          | Durée              |
 | resume         | Résumé             |
 | id_saison      | Clé étrangère      |
-
-🎭 Entité : Genre
-
-| Attribut  | Description |
-| --------- | ----------- |
-| id_genre  | Identifiant |
-| nom_genre | Nom         |
-
-Relation : Oeuvre_Genre
-
-Relation N:N entre Œuvre et Genre.
 
 4️⃣ Liste “À regarder plus tard”
 
@@ -217,7 +204,7 @@ Entité : Avis
 * Respect de la classification d’âge.
 * Suppression d’un client ⇒ suppression des profils associés.
 * Un abonnement détermine le nombre d’écrans simultanés.
-* Disponibilité possible des œuvres selon le pays.
+* Disponibilité possible des contenu selon le pays.
 * Historique indépendant pour chaque profil.
 
 📌 Liste des entités principales
@@ -236,6 +223,12 @@ Entité : Avis
 ## MCD
 
 <img width="1026" height="799" alt="image" src="https://github.com/user-attachments/assets/16af2909-0be5-4f99-89c1-05f589769e6f" />
+
+## MLD
+
+<img width="1917" height="293" alt="image" src="https://github.com/user-attachments/assets/64413a03-2f07-4699-a408-7f827a97fc76" />
+
+
 
 
 
