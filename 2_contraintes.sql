@@ -4,11 +4,11 @@ ALTER TABLE Contenu
 	ADD CONSTRAINT check_bande_annonce_url CHECK (Bande_annonce REGEXP '^(https?://).+'),
 	ADD CONSTRAINT check_type_contenu CHECk (Type_contenu IN ('Film', 'Série', 'Documentaire'));
 
-ALTER TABLE Abonement
+ALTER TABLE Abonnement
 	ADD CONSTRAINT check_type_abonnement CHECK (Type_abonnement IN ('Basique', 'Standard', 'Premium', 'VIP')),
     ADD CONSTRAINT check_prix_abonnement CHECK (Prix_Abonnement >= 0),
     ADD CONSTRAINT check_statut_abonnement CHECK (Statut_abonnement IN ('Actif', 'Suspendu', 'Résilié', 'Expiré')),
-    ADD CONSTRAINT check_nb_ecran_max CHECK (Nb_ecran_max BETWEEN 1 AND 10),
+    ADD CONSTRAINT check_nb_ecran_max CHECK (Nb_ecran_max BETWEEN 0 AND 10),
     ADD CONSTRAINT check_qualite_video CHECK (Qualite_video_abonnement IN ( 'HD', 'Full HD', '4K')),
     ADD CONSTRAINT check_dates_abonnement CHECK ( Date_fin_abonnement >= Date_debut_abonnement);
     
