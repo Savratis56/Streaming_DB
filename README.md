@@ -166,7 +166,7 @@ Respecte bien les contraintes suivantes :
 
 Pour une entreprise qui travaille dans la diffusion de contenus audiovisuels en ligne (streaming vidéo), la base de donnée va etre utiliser par le service marketing pour des recommendations de contenue en fonction des preferences de chaque profil.
 
-auteur - fekoua motcheka karl junior &  
+auteur - fekoua motcheka karl junior & Ariel steve Wantou Touko 
 
 
 
