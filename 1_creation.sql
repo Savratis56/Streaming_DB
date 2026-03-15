@@ -13,7 +13,7 @@ CREATE TABLE Contenu(
    PRIMARY KEY(Id_contenu)
 );
 
-CREATE TABLE Abonement(
+CREATE TABLE Abonnement(
    Id_abonnement INT AUTO_INCREMENT,
    Type_abonnement VARCHAR(20) NOT NULL DEFAULT 'AUCUN',
    Prix_Abonnement DECIMAL(5,2) NOT NULL DEFAULT 0,
@@ -68,7 +68,7 @@ CREATE TABLE Client(
    Id_abonnement INT,
    PRIMARY KEY(Id_client),
    UNIQUE(Email_client),
-   FOREIGN KEY(Id_abonnement) REFERENCES Abonement(Id_abonnement) ON UPDATE CASCADE ON DELETE CASCADE
+   FOREIGN KEY(Id_abonnement) REFERENCES Abonnement(Id_abonnement) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Profil(
