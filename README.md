@@ -1,243 +1,109 @@
-# STREAMING_DB
+# 🎬 BASE DE DONNEE POUR LA GESTION D'UN SITE DE STREAMING.
+Création d'une base de données pour la gestion d'une application de streaming - Projet académique EFREI Paris.
+
+## 🛠️ Outils
+
+### 🤖 IA (pour l'analyse du domaine, et la génération des données)
+
+Utilisation d'un prompt spécifique pour plus de conformité à l'exigence de la vie réelle.
+
+**Prompt généré à l'IAG :**
+
+Tu travailles dans le domaine de la diffusion de contenus audiovisuels en ligne (streaming vidéo). Ton entreprise a comme activité de proposer un service de streaming par abonnement permettant à ses clients d'accéder à un catalogue de film, séries et épisodes, vie des profils personnalisés. C'est entreprise comme Netflix, Disney+ ou prime vidéo. Les données ont été collectées sur les clients et leurs abonnements, les profils associés à chaque compte, les contenus disponibles (films et séries avec leurs saisons et épisodes), ainsi que les interactions des profils avec ces contenus (visionnage, ajout à une liste, avis). Inspire-toi des sites web suivant :
+
+- [Netflix](https://www.netflix.com/browse)
+- [Productions originales, films à succès et séries -- Disney+ France](https://www.disneyplus.com/fr-fr)
+- [Bienvenue dans Prime Video](https://www.primevideo.com/-/fr/offers/nonprimehomepage/?language=fr)
+
+Ton entreprise veut appliquer MERISE pour concevoir un système d'information. Tu es chargé de la partie analyse, c'est-à-dire de collecter les besoins auprès de l'entreprise. Elle a fait appel à un étudiant en ingénierie informatique pour réaliser ce projet, tu dois lui fournir les informations nécessaires pour qu'il applique ensuite lui-même les étapes suivantes de conception et développement de la base de données.
+
+D'abord, établis les règles de gestions des données de ton entreprise, sous la forme d'une liste à puce. Elle doit correspondre aux informations que fournit quelqu'un qui connaît le fonctionnement de l'entreprise, mais pas comment se construit un système d'information.
+
+Ensuite, à partir de ces règles, fournis un dictionnaire de données brutes avec les colonnes suivantes, regroupées dans un tableau : signification de la donnée, type, taille en nombre de caractères ou de chiffres. Il doit y avoir entre 25 et 35 données. Il sert à fournir des informations supplémentaires sur chaque donnée (taille et type) mais sans a priori sur comment les données vont être modélisées ensuite.
+
+Fournis donc les règles de gestion et le dictionnaire de données.
+
+---
+
+**Solution générée par l'IAG :**
+
+Voici une proposition claire comme si quelqu'un de l'entreprise expliquait le fonctionnement du service avant la conception technique du système d'information.
+
+### 1. 📋 Règles de gestion des données
+
+- Un client doit créer un **compte** pour accéder au service de streaming.
+- Chaque compte est associé à **une adresse email unique**.
+- Un compte possède **un abonnement actif** pour accéder aux contenus.
+- Un abonnement possède un **type d'offre** (standard, premium, etc.).
+- Un abonnement possède **une date de début** et **une date de fin**.
+- Un abonnement est associé à **un mode de paiement**.
+- Un compte peut créer **plusieurs profils utilisateurs**.
+- Chaque profil possède **un nom** et éventuellement **une image/avatar**.
+- Un profil peut être **profil adulte ou profil enfant**.
+- Un profil est toujours associé **à un seul compte**.
+- Un profil peut **consulter le catalogue de contenus** disponibles.
+- Un contenu peut être **un film ou une série**.
+- Un contenu possède **un titre, une description, une durée et une date de sortie**.
+- Un contenu appartient à **un ou plusieurs genres** (action, comédie, etc.).
+- Une série est composée **d'une ou plusieurs saisons**.
+- Une saison appartient **à une seule série**.
+- Une saison contient **plusieurs épisodes**.
+- Un épisode possède **un titre, une durée et un numéro d'épisode**.
+- Un profil peut **regarder un contenu ou un épisode**.
+- Le système enregistre **la date et la durée de visionnage**.
+- Un profil peut **mettre un contenu dans sa liste personnelle** (watchlist).
+- Un profil peut **supprimer un contenu de sa liste**.
+- Un profil peut **donner une note ou un avis sur un contenu**.
+- Un profil peut **interrompre un visionnage et le reprendre plus tard**.
+- Le système conserve **l'historique des contenus visionnés par chaque profil**.
+- Certains contenus peuvent être **des productions originales de la plateforme**.
+- Un contenu possède **une classification d'âge** (tout public, 12+, 16+, etc.).
+- Un contenu possède **une langue principale et éventuellement des sous-titres**.
+
+### 2. 📚 Dictionnaire de données brutes
+
+| Signification de la donnée | Type | Taille |
+|---|---|---|
+| Identifiant du compte client | Numérique | 10 |
+| Nom du client | Texte | 50 |
+| Prénom du client | Texte | 50 |
+| Adresse email du client | Texte | 100 |
+| Mot de passe du compte | Texte | 255 |
+| Date de création du compte | Date | 10 |
+| Type d'abonnement | Texte | 30 |
+| Prix de l'abonnement | Numérique | 5 |
+| Date de début de l'abonnement | Date | 10 |
+| Date de fin de l'abonnement | Date | 10 |
+| Mode de paiement | Texte | 30 |
+| Identifiant du profil | Numérique | 10 |
+| Nom du profil | Texte | 50 |
+| Type de profil (adulte/enfant) | Texte | 10 |
+| Image/avatar du profil | Texte | 255 |
+| Identifiant du contenu | Numérique | 10 |
+| Titre du contenu | Texte | 150 |
+| Description du contenu | Texte | 500 |
+| Type de contenu (film/série) | Texte | 10 |
+| Genre du contenu | Texte | 50 |
+| Date de sortie du contenu | Date | 10 |
+| Durée du contenu | Numérique | 4 |
+| Classification d'âge | Texte | 5 |
+| Identifiant de la saison | Numérique | 10 |
+| Numéro de la saison | Numérique | 2 |
+| Identifiant de l'épisode | Numérique | 10 |
+| Numéro de l'épisode | Numérique | 3 |
+| Durée de l'épisode | Numérique | 4 |
+| Date de visionnage | Date | 10 |
+| Progression de visionnage | Numérique | 3 |
+| Note donnée par le profil | Numérique | 2 |
+| Commentaire / avis du profil | Texte | 300 |
+| Date d'ajout à la liste | Date | 10 |
+
+---
 
-## Prompt generer a ChatGpt
+### looping (pour la representation en mcd et gereration du MLD correspondant)
 
-Tu travailles dans le domaine du streaming. Ton entreprise a comme activité de proposer un vaste catalogue de films, séries et documentaires en vidéo à la demande (VOD) via un système d'abonnement. C’est une entreprise comme Netflix, Disney+ ou Amazon Prime Video. Nous avons besoin de structurer notre base de données. Les données ont été collectées sur la gestion des comptes clients, la personnalisation des espaces de visionnage selon l'âge, le catalogue d'contenu audiovisuelles disponibles, et la façon dont nos clients sauvegardent leurs films et séries préférés pour les regarder plus tard. Inspire-toi de l’architecture générale de la plateforme Netflix. Ton entreprise veut appliquer MERISE pour concevoir un système d'information. Tu es chargé de la partie analyse, c’est-à-dire de collecter les besoins auprès de l’entreprise. Elle a fait appel à un étudiant en ingénierie informatique pour réaliser ce projet, tu dois lui fournir les informations nécessaires pour qu’il applique ensuite lui-même les étapes suivantes de conception et développement de la base de données.
+### 1. MCD inspiré a la solution gerené par chat gpt:
 
 
-## Resultat du prompt
-
-📌 Analyse des besoins – Plateforme de Streaming (Méthode MERISE)
-
-🎯 Contexte du projet
-
-L’entreprise développe une plateforme de vidéo à la demande par abonnement (SVOD).
-La plateforme permet :
-* La gestion des comptes clients
-* La gestion d’abonnements
-* La création de profils personnalisés
-* La consultation d’un catalogue d’contenu
-* La sauvegarde de contenus (liste “À regarder plus tard”)
-* Le suivi de l’historique de visionnage
-
-Cette partie correspond à la phase d’analyse dans MERISE : identification des données et des règles de gestion.
-
-1️⃣ Gestion des comptes clients
-
-📌 Objectif métier
-
-Un utilisateur doit pouvoir :
-* Créer un compte
-* Souscrire à un abonnement
-* Gérer ses informations personnelles
-* Résilier son abonnement
-
-📊 Données à gérer
-
-Entité : Client
-
-| Attribut      | Description                |
-| ------------- | -------------------------- |
-| id_client     | Identifiant unique         |
-| nom           | Nom du client              |
-| prenom        | Prénom du client           |
-| email         | Adresse email (unique)     |
-| mot_de_passe  | Mot de passe               |
-| date_creation | Date de création du compte |
-| pays          | Pays de résidence          |
-| statut_compte | Actif / Suspendu / Résilié |
-
-Entité : Abonnement
-
-| Attribut        | Description                          |
-| --------------- | ------------------------------------ |
-| id_abonnement   | Identifiant unique                   |
-| type_abonnement | Standard / Premium / etc             |
-| prix            | Prix mensuel                         |
-| nb_ecrans_max   | Nombre d’écrans simultanés autorisés |
-| qualite_video   | HD / 4K                              |
-| date_debut      | Date de début                        |
-| date_fin        | Date de fin                          |
-| statut          | Actif / Expiré                       |
-
-📌 Règles de gestion
-
-* Un client possède au maximum un abonnement actif.
-* Un email est unique dans la base.
-* Un abonnement limite le nombre d’écrans simultanés.
-
-2️⃣ Gestion des profils
-
-Chaque compte peut contenir plusieurs profils (comme sur Netflix).
-
-📌 Objectif métier
-
-Un client peut :
-
-* Créer plusieurs profils
-* Définir un profil enfant
-* Personnaliser la langue
-
-
-Entité : Profil
-
-| Attribut        | Description               |
-| --------------- | ------------------------- |
-| id_profil       | Identifiant unique        |
-| nom_profil      | Nom affiché               |
-| avatar          | Image/avatar              |
-| type_profil     | Adulte / Enfant           |
-| limite_age      | Âge maximum autorisé      |
-| langue_preferee | Langue par défaut         |
-| date_creation   | Date de création          |
-| id_client       | Clé étrangère vers Client |
-
-📌 Règles de gestion
-
-* Un profil appartient obligatoirement à un seul client.
-* Un client peut posséder plusieurs profils.
-* Un profil enfant ne peut voir que les contenus adaptés à son âge.
-* L’historique est propre à chaque profil.
-
-3️⃣ Catalogue des contenu
-
-La plateforme propose :
-
-* Films
-* Séries
-* Documentaires
-
-🎬 Entité : contenu
-
-| Attribut           | Description                 |
-| ------------------ | --------------------------- |
-| id_oeuvre          | Identifiant unique          |
-| titre              | Titre de l’œuvre            |
-| description        | Résumé                      |
-| date_sortie        | Date de sortie              |
-| duree              | Durée (en minutes)          |
-| type               | Film / Série / Documentaire |
-| classification_age | Âge minimum                 |
-| bande_annonce      | URL                         |
-| genre              | genre                       |
-
- 🎞 Spécificité des séries
- 
-Entité : Saison
-
-| Attribut      | Description        |
-| ------------- | ------------------ |
-| id_saison     | Identifiant unique |
-| numero_saison | Numéro             |
-| annee         | Année              |
-| id_oeuvre     | Clé étrangère      |
-
-Entité : Episode
-
-| Attribut       | Description        |
-| -------------- | ------------------ |
-| id_episode     | Identifiant unique |
-| numero_episode | Numéro             |
-| titre          | Titre              |
-| duree          | Durée              |
-| resume         | Résumé             |
-| id_saison      | Clé étrangère      |
-
-4️⃣ Liste “À regarder plus tard”
-
-📌 Objectif métier
-
-Un profil peut :
-
-* Ajouter une œuvre à sa liste
-* Supprimer une œuvre
-* Consulter sa liste personnelle
-  
-Entité associative : Liste_Favoris
-
-| Attribut   | Description   |
-| ---------- | ------------- |
-| id_profil  | Clé étrangère |
-| id_oeuvre  | Clé étrangère |
-| date_ajout | Date d’ajout  |
-
-Relation N:N entre Profil et Œuvre.
-
-5️⃣ Historique de visionnage
-
-📌 Objectif métier
-
-Enregistrer :
-* Ce qu’un profil regarde
-* La progression
-* Le statut (en cours / terminé)
-
-  Entité : Visionnage
-
-| Attribut      | Description         |
-| ------------- | ------------------- |
-| id_visionnage | Identifiant         |
-| date_debut    | Début du visionnage |
-| date_fin      | Fin                 |
-| progression   | Pourcentage         |
-| statut        | En cours / Terminé  |
-| id_profil     | Clé étrangère       |
-| id_oeuvre     | Clé étrangère       |
-
-Relation N:N entre Profil et Œuvre via Visionnage.
-
-6️⃣ Système de notation (optionnel)
-
-Entité : Avis
-
-| Attribut    | Description   |
-| ----------- | ------------- |
-| id_avis     | Identifiant   |
-| note        | Note (1 à 5)  |
-| commentaire | Texte         |
-| date_avis   | Date          |
-| id_profil   | Clé étrangère |
-| id_oeuvre   | Clé étrangère |
-
-7️⃣ Contraintes générales
-
-* Respect de la classification d’âge.
-* Suppression d’un client ⇒ suppression des profils associés.
-* Un abonnement détermine le nombre d’écrans simultanés.
-* Disponibilité possible des contenu selon le pays.
-* Historique indépendant pour chaque profil.
-
-📌 Liste des entités principales
-
-* Client
-* Abonnement
-* Profil
-* Oeuvre
-* Saison
-* Episode
-* Genre
-* Visionnage
-* Liste_Favoris
-* Avis
-
-## MCD
-
-<img width="1026" height="799" alt="image" src="https://github.com/user-attachments/assets/16af2909-0be5-4f99-89c1-05f589769e6f" />
-
-## MLD
-
-<img width="1917" height="293" alt="image" src="https://github.com/user-attachments/assets/64413a03-2f07-4699-a408-7f827a97fc76" />
-
-
-
-
-
-
-
-
-
-
-
-
-
+### 2. MlD correspondant au mcd:
 
